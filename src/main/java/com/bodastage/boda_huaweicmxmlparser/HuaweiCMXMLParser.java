@@ -364,7 +364,7 @@ public class HuaweiCMXMLParser {
                 inputFile == null || 
                 ( outputDirectory == null && onlyExtractParameters == false) ){
                      HelpFormatter formatter = new HelpFormatter();
-                     String header = "Parses Huawei NBI XML files to csv\n\n";
+                     String header = "Parses Huawei Bulk CM XML files to csv\n\n";
                      String footer = "\n";
                      footer += "Examples: \n";
                      footer += "java -jar boda-huaweicmxmlparser.jar -i nbi_dump.xml -o out_folder\n";
