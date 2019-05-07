@@ -268,9 +268,17 @@ public class HuaweiCMXMLParser {
         extractMetaFields = bool;
     }
 
+    private static boolean createOutputDir(final String dirName) {
+        final File dir = new File(dirName);
+        if (!dir.exists() && !dir.mkdirs()) {
+            System.err.println("Unable to create " + dir.getAbsolutePath());
+            System.exit(1);
+        }
+        return true;
+    }
+
     public static void main( String[] args )
     {
-        
        Options options = new Options();
        CommandLine cmd = null;
        String outputDirectory = null;   
@@ -372,7 +380,9 @@ public class HuaweiCMXMLParser {
                 File fOutputDir = new File(outputDirectory);
                 if (!fOutputDir.isDirectory()) {
                     System.err.println("ERROR: The specified output directory is not a directory!.");
-                    System.exit(1);
+                    //System.exit(1);
+                    System.err.println("Try create outputDirectory");
+                    createOutputDir(outputDirectory);
                 }
 
                 if (!fOutputDir.canWrite()) {
